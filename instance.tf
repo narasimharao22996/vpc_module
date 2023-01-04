@@ -22,27 +22,3 @@ resource "aws_instance" "webec2" {
 }
 
 
-resource "null_resource" "webprovisoner" {
-  triggers = {
-    running_number = var.web-trigger
-  }
-
-  provisioner "remote-exec" {
-
-      connection {
-        type = "ssh"
-        user = "ubuntu"
-        private_key = file("~/.ssh/id_rsa")
-        host = aws_instance.webec2.public_ip 
-      }
-
-      inline = [
-        "sudo apt update",
-        "sudo apt install nginx -y",
-        #"sudo apt install tree -y"
-      ]
-
-    }
-    depends_on = [ aws_instance.webec2 ]
-  
-}
