@@ -1,9 +1,9 @@
 terraform {
 backend "s3" {
-  bucket = "mys3buccc"
-  key = "folder3"
+  bucket = "bucketbuc123"
+  key = "directory1"
   region = "us-east-1"
-  dynamodb_table = "dynamodbtableee"
+  dynamodb_table = "dynamodbdyn123"
  
 }
 }
